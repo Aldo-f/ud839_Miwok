@@ -41,7 +41,7 @@ public class ColorsActivity extends AppCompatActivity {
         words.add(new Word("dusty yellow","ṭopiisә", R.drawable.color_dusty_yellow));
         words.add(new Word("mustard yellow","chiwiiṭә", R.drawable.color_mustard_yellow));
 
-
+//test
         //Show the words withe the WordAdapter
         WordAdapter adapter =
                 new WordAdapter(this, words);
