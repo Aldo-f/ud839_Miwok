@@ -1,25 +1,29 @@
 package com.example.android.miwok;
 
 /**
- * Created by admin on 8/05/2017.
- * {@Link Word} represents a voc word that the user wants to learn.
- * it contains the default translation and a Miwok translation of that word
+ * {@link Word} represents a vocabulary word that the user wants to learn.
+ * It contains a default translation, a Miwok translation, and an image for that word.
  */
-
 public class Word {
 
-    //    No image provides (in caps because its a constant)
+    /**
+     * Constant value that represents no image was provided for this word
+     */
     private static final int NO_IMAGE_PROVIDED = -1;
     /**
-     * default translation of the word
-     **/
+     * Default translation for the word
+     */
     private String mDefaultTranslation;
     /**
-     * MiwokTranslation of the word
-     **/
+     * Miwok translation for the word
+     */
     private String mMiwokTranslation;
     /**
-     * Image
+     * Audio resource ID for the word
+     */
+    private int mAudioResourceId;
+    /**
+     * Image resource ID for the word
      */
     private int mImageResourceId = NO_IMAGE_PROVIDED;
 
@@ -29,10 +33,12 @@ public class Word {
      * @param defaultTranslation is the word in a language that the user is already familiar with
      *                           (such as English)
      * @param miwokTranslation   is the word in the Miwok language
+     * @param audioResourceId    is the resource ID for the audio file associated with this word
      */
-    public Word(String defaultTranslation, String miwokTranslation) {
+    public Word(String defaultTranslation, String miwokTranslation, int audioResourceId) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
+        mAudioResourceId = audioResourceId;
     }
 
     /**
@@ -42,36 +48,48 @@ public class Word {
      *                           (such as English)
      * @param miwokTranslation   is the word in the Miwok language
      * @param imageResourceId    is the drawable resource ID for the image associated with the word
-     *                           !!!!!!!!!!!!!!!!! same name, but with multiple usages (this one has an image int)
+     * @param audioResourceId    is the resource ID for the audio file associated with this word
      */
-    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId) {
+    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId,
+                int audioResourceId) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
         mImageResourceId = imageResourceId;
+        mAudioResourceId = audioResourceId;
     }
 
     /**
-     * get the default translation of the word.
+     * Get the default translation of the word.
      */
     public String getDefaultTranslation() {
         return mDefaultTranslation;
     }
 
     /**
-     * get the miwok translation of the word.
+     * Get the Miwok translation of the word.
      */
     public String getMiwokTranslation() {
         return mMiwokTranslation;
     }
 
-//    get the image resource id
-
+    /**
+     * Return the image resource ID of the word.
+     */
     public int getImageResourceId() {
         return mImageResourceId;
     }
 
-//    is there an image for the word?
+    /**
+     * Returns whether or not there is an image for this word.
+     */
     public boolean hasImage() {
         return mImageResourceId != NO_IMAGE_PROVIDED;
+    }
+
+    /**
+     * Return the audio resource ID of the word.
+     */
+    public int getAudioResourceId() {
+        return mAudioResourceId;
     }
 }
